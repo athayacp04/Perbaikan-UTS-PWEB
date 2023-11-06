@@ -12,25 +12,21 @@
 <body>
     <div class="container">
         <div class="row" id="pokemon-details">
-            <!-- Pokémon details will be displayed here -->
         </div>
     </div>
 
     <script>
-        // Function to populate the details of a single Pokémon
         async function populatePokemonDetails() {
             const searchParams = new URLSearchParams(window.location.search);
             const pokemonUrl = searchParams.get('url');
 
             if (!pokemonUrl) {
-                // Handle missing URL parameter
                 return;
             }
 
             const response = await fetch(pokemonUrl);
             const data = await response.json();
 
-            // Display Pokémon details on the page
             const detailsContainer = document.getElementById('pokemon-details');
             detailsContainer.innerHTML = `
                 <div class="col-12">
@@ -41,8 +37,6 @@
                 </div>
             `;
         }
-
-        // Call the function to populate Pokémon details
         populatePokemonDetails();
     </script>
 </body>
